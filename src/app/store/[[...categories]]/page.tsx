@@ -1,15 +1,15 @@
 interface CategoryProps {
   params: {
-    category: string;
+    categories: string[];
+    searchParams?: string[];
   };
 }
 
 export default function Category(props: CategoryProps) {
-  const { category } = props.params;
-  console.log(category);
+  const { categories } = props.params;
   return (
     <div>
-      <h1>Category: {category}</h1>
+      <h1>Category: {categories}</h1>
     </div>
   );
 }
