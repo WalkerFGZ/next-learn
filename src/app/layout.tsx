@@ -1,3 +1,5 @@
+import "app/sass/global.sass";
+
 import { Footer } from "app/components/shared/Footer";
 import { Header } from "app/components/shared/Header";
 import { Inter } from "next/font/google";
