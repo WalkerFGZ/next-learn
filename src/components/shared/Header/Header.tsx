@@ -1,18 +1,31 @@
 import Link from "next/link";
-import { cookies } from "next/headers";
+import { ShoppingCart } from "../ShoppingCart";
+import styles from "./Header.module.sass";
+import { validateAccessToken } from "app/utils/auth/validateAccessToken";
 
-export const Header = () => {
-  const cookiesStore = cookies();
-  const token = cookiesStore.get("accessToken")?.value;
+export const Header = async () => {
+  const customer = await validateAccessToken();
+
   return (
-    <header>
+    <header className={styles.Header}>
       <nav>
-        <ul>
-          <Link href="/">Home</Link>
-          <Link href="/store">Store</Link>
+        <ul className={styles.Header__list}>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/store">Store</Link>
+          </li>
         </ul>
-        {token ? <p>Bienvenido</p> : <Link href="/login">Login</Link>}
       </nav>
+      <div className={styles.Header__user}>
+        {customer?.firstName ? (
+          <p>Hola! {customer.firstName}</p>
+        ) : (
+          <Link href="/login">Login</Link>
+        )}
+        <ShoppingCart />
+      </div>
     </header>
   );
 };
