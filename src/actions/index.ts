@@ -16,10 +16,8 @@ export const handleCreateUser = async (formData: FormData) => {
       phone: "+57" + formDataObject.phone,
     },
   };
-  const { customerCreate } = await graphqlClient.request(
-    createUserMutation,
-    variables
-  );
+  const response = await graphqlClient.request<any>(createUserMutation, variables);
+  const { customerCreate } = response;
   const { customerUserErrors, customer } = customerCreate;
   console.log(customer.firstName);
   if (customer?.firstName) {
