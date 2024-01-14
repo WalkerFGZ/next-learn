@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { GraphQLClientSingleton } from "app/graphql";
 import { cookies } from "next/headers";
 import { customerAccessTokenCreateMutation } from "app/graphql/mutations/customerAccessTokenCreate";

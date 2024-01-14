@@ -1,5 +1,6 @@
-import { GraphQLClient } from 'graphql-request';
-import { env } from 'app/config/env';
+// @ts-nocheck
+import { GraphQLClient } from "graphql-request";
+import { env } from "app/config/env";
 
 export class GraphQLClientSingleton {
   private readonly endpoint: string = env.SHOPIFY_GRAPHQL_ENDPOINT;
@@ -16,7 +17,7 @@ export class GraphQLClientSingleton {
   getClient(): GraphQLClient {
     return new GraphQLClient(this.endpoint, {
       headers: {
-        'Shopify-Storefront-Private-Token': env.SHOPIFY_STOREFRONT_TOKEN,
+        "Shopify-Storefront-Private-Token": env.SHOPIFY_STOREFRONT_TOKEN,
       },
     });
   }

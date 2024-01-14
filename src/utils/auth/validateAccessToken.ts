@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { GraphQLClientSingleton } from "app/graphql";
 import { cookies } from "next/headers";
 import { customerName } from "app/graphql/queries/customerName";

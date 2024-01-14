@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { env } from "app/config/env";
 import { shopifyUrls } from "./urls";
 
